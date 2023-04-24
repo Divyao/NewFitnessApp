@@ -23,8 +23,6 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [regBtn,setRegBtn]=useState(false)
-    const [currentUser, setCurrentUser] = useState(null);
-    const [file,setFile]=useState(null)
     const [loading,setLoading]=useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [emailError, setEmailError] = useState(false)
@@ -46,7 +44,7 @@ const RegisterForm = () => {
         setEmailError(false)
         setPasswordError(false)
 
-        if (email == '' ) {
+        if (email === '' ) {
             setEmailError(true)
         }
         if ( password.length < 6) {
@@ -57,16 +55,10 @@ const RegisterForm = () => {
 
         //if (!passwordError){
        if (email && password  ) {
-        let obj = {
-            name: name,
-            email : email,
-            password: password
-           
-        }       
-       
+         
         try {
             createUserWithEmailAndPassword(auth, email, password);      
-            setCurrentUser(true);
+//            setCurrentUser(true);
           } catch (error) {
             console.log(error);
           }
@@ -87,7 +79,7 @@ const RegisterForm = () => {
 
     return (
         <React.Fragment >
-            <Grid style={{ backgroundColor: 'black' }} container wrap="nowrap" spacing={2}>
+            <Grid style={{ backgroundColor: 'white' }} container wrap="nowrap" spacing={2}>
                 <Grid item xs zeroMinWidth>
                      <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }} >
                         <StyledPaper  
@@ -140,7 +132,7 @@ const RegisterForm = () => {
                 />
                
 
-                <Button variant="outlined" color="secondary" type="submit">Register </Button>
+                <Button  disabled={regBtn} variant="outlined" color="secondary" type="submit">Register </Button>
                 
             </form>
             </div>

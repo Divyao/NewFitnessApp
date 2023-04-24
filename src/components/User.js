@@ -4,9 +4,6 @@ import {Container , Button} from 'react-bootstrap';
 import {db} from '../firebase';
 import { collection, getDocs } from "firebase/firestore";
 import  { useNavigate, useLocation  } from 'react-router-dom';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
-
 
 
 const UserForm = () =>  {
@@ -17,7 +14,7 @@ const UserForm = () =>  {
     const location = useLocation();
 
     const useremailname = location?.state?.email
-    const username = location?.state?.name
+   // const username = location?.state?.name
 
 
     const onNavigHandler = (e,userDet) => {
@@ -48,8 +45,7 @@ const UserForm = () =>  {
 
 
   return (
-    <div className="container-sm">
-        <Header/> 
+    <div >
     <Container className='p-4'>  
     <MDBTable align='middle'>
       <MDBTableHead>
@@ -194,7 +190,6 @@ const UserForm = () =>  {
         </MDBTableBody>
         </MDBTable>
         </Container>  
-        <Footer/> 
         </div>
 
   ) };

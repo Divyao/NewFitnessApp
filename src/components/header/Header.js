@@ -42,26 +42,23 @@ useEffect(()=>{
             path:"/",
             name:"Home",
         },
-        {
-            path:"/home",
-            name:"Form",
-        },
-        {
-            path:"/user",
-            name:"Users "
-        }
+        
+
     ]
+
+    
 
     const navigate=useNavigate();
   return (
+    <div style={{ backgroundColor: 'black', color: 'Blue'}}>
    <header className={`header ${nav && 'sticky__header'}`}>
- <Container style={{ backgroundColor: 'black' }} text="white">
+ <Container  text="white">
     <Row>
         <div className="nav__wrapper">
             <div className="logo">
                 <img onClick={()=>{navigate("/")}} src={logo} alt="logo" />
                 <div>
-                    <h1 className='text-white' onClick={()=>{navigate("/")}}>MyApp</h1>
+                    <h3 className='text-white' onClick={()=>{navigate("/")}}>My Fitness App</h3>
                     {/* <p>Since 1992</p> */}
                 </div>
             </div>
@@ -108,6 +105,7 @@ useEffect(()=>{
     </Row>
  </Container>
     </header>
+    </div>
   )
 }
 

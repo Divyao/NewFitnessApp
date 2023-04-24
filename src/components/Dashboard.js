@@ -5,22 +5,17 @@ import  { useState, useEffect } from 'react';
 import axios  from 'axios';
 import Bodyfat from './Bodyfat';
 import { useLocation } from 'react-router-dom';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
-import  { useNavigate  } from 'react-router-dom';
 
 
 //import img1 from './img1.jpg';  
 function ExerciseCard() {  
 
-    const [details, setDetails] = useState({});
     const [bodyfat, setBodyfat] = useState('');
     const [idealWeight, setIdealWeight] = useState('');
     const [bmiValue ,setBMIValue] = useState('');
     const [macroValue ,setMacroValue] = useState('');
 
    
-    const nav = useNavigate();
     const location = useLocation();
 
     const newUserDet = location.state?.userDetails
@@ -77,8 +72,8 @@ function ExerciseCard() {
           height: newUserDet.height,
           weight: newUserDet.weight,
           gender: newUserDet.gender,
-          activitylevel: newUserDet.activitylevel,
-          goal:  newUserDet.goal
+          activitylevel: newUserDet.activity,
+          goal:  newUserDet.goals
         },
         headers: {
           'X-RapidAPI-Key': '4a0b82339bmshb4ed0c2cc0b76ebp1156aajsn3acd1ddc6749',
@@ -142,17 +137,15 @@ function ExerciseCard() {
         bmiUserData();
         idealWtData();
         macroData();
-    }, []);
+    }, [newUserDet]);
 
     
 
   return (  
     <div className="container-sm">
-     <Header/> 
      <Container className='p-4'>  
     <Bodyfat bodyfatprop={bodyfat} bmiprop ={bmiValue} idealwtprop={idealWeight} macroprop ={macroValue}/> 
     </Container>
-    <Footer/>
     </div>
 
   );  

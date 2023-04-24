@@ -8,7 +8,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-//import  UserContext  from '../Context';
 
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -29,7 +28,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loginDetails, setLoginDet] = useState('')
   const [loading, setLoading] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
@@ -43,10 +41,10 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   setEmailError(false)
   setPasswordError(false)
 
-  if (email == '' ) {
+  if (email === '' ) {
       setEmailError(true)
   }
-  if (password == '' && password > 6) {
+  if (password === '' && password > 6) {
       setPasswordError(true)
   }
 
@@ -77,7 +75,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     return ( 
         <React.Fragment>
     <div >
-    <Grid style={{ backgroundColor: 'black' }} container wrap="nowrap" spacing={2}>
+    <Grid style={{ backgroundColor: 'white' }} container wrap="nowrap" spacing={2}>
       <Grid item xs zeroMinWidth>
         <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }} >
       <StyledPaper  

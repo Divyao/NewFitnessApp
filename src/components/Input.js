@@ -3,23 +3,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import  { useState} from 'react';
-import { TextField,  Paper } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import {db} from '../firebase';
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { useNavigate, useLocation } from "react-router-dom";
 import {Button} from 'react-bootstrap';  
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 const genderList = [
   {
@@ -107,7 +97,6 @@ const activelyLevelList = [
     const [goals, setGoals] = useState('');
     const [user, setUser] = useState('');
     const [inputBtn,setInpBtn]=useState(false)
-    const [emailInp,setEmailInp]=useState('')
 
     const nav = useNavigate();
     const location = useLocation();
@@ -167,22 +156,28 @@ const activelyLevelList = [
     }
     return(
       <React.Fragment>
-         <Header/> 
       <CssBaseline />
-      <Container fixed>
-        <Box sx={{ height: '150vh' }} >
+      <Container className="container-md" fixed>
+        <Box sx={{
+        height: '150vh', border: '1px dashed grey'
+      }}>
+
+          
         <div align="center">
        <form onSubmit={onSubmitHandler}>
        <br/>
        <h1>Enter Details</h1>
+       <hr/>
+       <br/>
        <TextField  label="User" value={user} onChange=  { (e) => setUser(e.target.value) } />
-         <TextField  label="Age" value={age} onChange=  { (e) => setAge(e.target.value) } />
+         <TextField style={{marginLeft: "2%", }} label="Age" value={age} onChange=  { (e) => setAge(e.target.value) } />
          {/* <TextField label="Gender" value={gender} onChange={(e) => setGender(e.target.value)} /> */}
-         <TextField
+         <TextField  style={{marginLeft: "2%", width:"20%"}}
           id="outlined-select-activity"
           select
           label="gender"
           defaultValue="male"
+          placeholder='gender'
           value={gender} 
           onChange={(e) => setGender(e.target.value)}
         >
@@ -193,18 +188,20 @@ const activelyLevelList = [
           ))}
         </TextField>
 
+         <br/>
+         <br/>
          <TextField  label="Height" value={height} onChange={(e) => setHeight(e.target.value)} />
-         <br/>
-         <br/>
-        <TextField  label="Weight" value={weight} onChange={(e) => setWeight(e.target.value)} />
+
+        <TextField  style={{marginLeft: "2%", }} label="Weight" value={weight} onChange={(e) => setWeight(e.target.value)} />
         <br/>
          <br/>
          <TextField label="neck" value={neck} onChange={(e) => setNeck(e.target.value)} />
-         <TextField  label="waist" value={waist} onChange={(e) => setWaist(e.target.value)} />
-         <TextField  label="hip" value={hip} onChange={(e) => setHip(e.target.value)} />
+         <TextField style={{marginLeft: "2%", }} label="waist" value={waist} onChange={(e) => setWaist(e.target.value)} />
+         <TextField style={{marginLeft: "2%", }} label="hip" value={hip} onChange={(e) => setHip(e.target.value)} />
          <br/>
          <br/>
          <TextField
+          style={{ width:"20%"}}
           id="outlined-select-activity"
           select
           label="Activity Level"
@@ -220,6 +217,7 @@ const activelyLevelList = [
         </TextField>
 
         <TextField
+          style={{marginLeft: "2%", width:"20%"}}
           id="outlined-select-goal"
           select
           label="goal"
@@ -252,9 +250,9 @@ const activelyLevelList = [
       
     </Box>
       </Container>
-      <Footer />
     </React.Fragment>
     )
  }
 
  export default InputDetails;
+
