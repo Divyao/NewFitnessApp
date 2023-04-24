@@ -15,7 +15,7 @@ function ExerciseCard() {
     const [bmiValue ,setBMIValue] = useState('');
     const [macroValue ,setMacroValue] = useState('');
 
-   
+    
     const location = useLocation();
 
     const newUserDet = location.state?.userDetails
@@ -101,14 +101,6 @@ function ExerciseCard() {
                     console.log(e);
             }
     };
-
-
-    axios.request(macroNutri).then(function (response) {
-        
-        setMacroValue(response.data.data)
-      }).catch(function (error) {
-        console.error(error);
-      });
    
     const bmiUserData = async () => {
         try {
@@ -133,11 +125,13 @@ function ExerciseCard() {
 
     useEffect(() => {
         window.scrollTo(0,0)
+      
         getUserData();
         bmiUserData();
         idealWtData();
         macroData();
-    }, [newUserDet]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     
 
