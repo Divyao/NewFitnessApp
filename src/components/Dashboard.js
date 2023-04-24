@@ -1,36 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
-import {Container ,Card,Row, Col} from 'react-bootstrap'; 
+import {Container } from 'react-bootstrap'; 
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-//import Container  from '@mui/material/Container';
 import  { useState, useEffect } from 'react';
 import axios  from 'axios';
 import Bodyfat from './Bodyfat';
-import { useLocation , useParams} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
-import  {Link, useNavigate  } from 'react-router-dom';
-
-
-
-
-
-
-import { TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-//import Card from '@mui/material/Card';
-// import CardActions from '@mui/material/CardActions';
-// import CardContent from '@mui/material/CardContent';
-// import Bodyfat from './Bodyfat';
-// import Idealweight from './Idealweight';
-// import { styled } from '@mui/material/styles';
-// import Grid from '@mui/material/Grid';
-// import BMI from './BMI';
-// import Macros from './macros';
-// import MenuItem from '@mui/material/MenuItem';
-// import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-
+import  { useNavigate  } from 'react-router-dom';
 
 
 //import img1 from './img1.jpg';  
@@ -41,21 +18,8 @@ function ExerciseCard() {
     const [idealWeight, setIdealWeight] = useState('');
     const [bmiValue ,setBMIValue] = useState('');
     const [macroValue ,setMacroValue] = useState('');
-    const [showDetails, setShowDetails] = useState(false);
 
-    // const {id}= useParams();
-    // const location = useLocation();
-    // const state = location.state;
-    // const check = state.map((map) => {
-    //     console.log(map.user);
-    //     console.log(map.age);
-    // })
-
-    // const user = state.filter((thisProject )=> thisProject.id == id);
-
-  //  console.log(user)
-    // console.log(check);
-
+   
     const nav = useNavigate();
     const location = useLocation();
 

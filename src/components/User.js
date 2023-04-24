@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import {Container ,Card,Row, Col, Button} from 'react-bootstrap';  
+import {  MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import {Container , Button} from 'react-bootstrap';  
 import {db} from '../firebase';
-import { collection, addDoc, getDocs } from "firebase/firestore";
-import  {Link, useNavigate, useLocation  } from 'react-router-dom';
+import { collection, getDocs } from "firebase/firestore";
+import  { useNavigate, useLocation  } from 'react-router-dom';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 
@@ -20,13 +20,6 @@ const UserForm = () =>  {
     const username = location?.state?.name
 
 
-    //console.log(location?.state?.email);
-    // const onNavigHandler = () => {
-    //     const user = users.filter((thisUser )=> thisUser.id == id);
-    //     navigate(`/dashboard/:id`,{state:users})
-
-    //    // `/profile/${user.id}`
-    // }
     const onNavigHandler = (e,userDet) => {
         e.preventDefault();
         console.log('test')
@@ -35,7 +28,6 @@ const UserForm = () =>  {
 
         navigate(`/dashboard`,{state:{userDetails:userDet}})
 
-       // `/profile/${user.id}`
     }
     const fetchPost = async () => {
        
@@ -129,14 +121,7 @@ const UserForm = () =>  {
                     {user.goals}
             </td>
             <td>
-            <button onClick = {(e) => onNavigHandler(e,user)}>CHECK</button>
-            {/* <Link to= {{pathname:'/dashboard',
-                state: [{id: "1",user:"Priya"
-                    }]}}>
-                <MDBBtn color='warning'  rounded size='sm'>
-                    CHECK
-                </MDBBtn>
-                </Link> */}
+            <Button onClick = {(e) => onNavigHandler(e,user)}>CHECK</Button>
 
             </td>
             </tr>
@@ -198,13 +183,6 @@ const UserForm = () =>  {
             </td>
             <td>
             <Button onClick = {(e) => onNavigHandler(e,user)}>CHECK</Button>
-            {/* <Link to= {{pathname:'/dashboard',
-                state: [{id: "1",user:"Priya"
-                    }]}}>
-                <MDBBtn color='warning'  rounded size='sm'>
-                    CHECK
-                </MDBBtn>
-                </Link> */}
 
             </td>
             </tr>
@@ -224,25 +202,4 @@ const UserForm = () =>  {
 
 export default UserForm;
 
-
-// state: [{id: i, user: user.user, age : user.age,
-//     height:user.height,
-//     weight:user.weight,
-//     gender:user.gender,
-//     neck:user.neck,
-//     waist:user.waist,
-//     hip:user.hip,
-//     activity:user.activity,
-//     goals:user.goals,
-//     }]}}>
-
-//           // <Link to= {`/dashboard/${i}`}> 
-
-// users?.map((data,i)=> return {} (
-//     <p key={i}>
-//         {data.age}
-//     </p>
-
-
-        
 

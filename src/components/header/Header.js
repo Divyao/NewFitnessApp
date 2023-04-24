@@ -7,7 +7,6 @@ import { Container,Row } from 'reactstrap'
 import {BsSuitHeart,BsBag} from "react-icons/bs"
 import {RxHamburgerMenu} from "react-icons/rx"
 import {motion} from "framer-motion"
-import { useSelector } from 'react-redux'
 import { auth } from '../../firebase'
 import { signOut } from 'firebase/auth'
 import { toast } from 'react-toastify'

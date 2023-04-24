@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
-import {Container ,Card,Row, Col} from 'react-bootstrap'; 
+import {Container ,Card,Row} from 'react-bootstrap'; 
 import { MDBBadge} from 'mdb-react-ui-kit';
 
 import * as React from 'react';
@@ -9,8 +9,7 @@ const BMI = (props) => {
 
     return(
 
-        <div className="App">    
-    
+    <div className="App">    
     <div className="App">  
    <Container className='p-4'>  
      <Row>  

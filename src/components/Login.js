@@ -1,5 +1,5 @@
 import React, {useState,useEffect, useContext} from "react";
-import { TextField, FormControl, Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -54,9 +54,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   try{
     const userCredential=await signInWithEmailAndPassword(auth,email,password)
     const user=userCredential.user;
-    // setLoginDet(user.reloadUserInfo?.email)
-    // console.log(user.reloadUserInfo?.email)
-    // console.log("login",loginDetails)
     setLoading(false);
     toast.success("Successfully logged in")
     alert('Successfully logged in')

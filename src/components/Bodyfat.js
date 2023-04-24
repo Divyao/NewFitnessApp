@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import {Container ,Card,Row, Col} from 'react-bootstrap'; 
-import { useParams } from 'react-router-dom';
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 import * as React from 'react';
 
