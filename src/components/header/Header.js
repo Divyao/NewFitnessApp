@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import "./Header.css"
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from "../../images/Fitness.png"
 import user_icon from "../../images/user-icon.png"
 import { Container,Row } from 'reactstrap'
