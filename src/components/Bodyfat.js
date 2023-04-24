@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
-import {Container ,Card,Row, Col} from 'react-bootstrap'; 
+import {Container ,Card,Row} from 'react-bootstrap'; 
 
 import * as React from 'react';
 

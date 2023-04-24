@@ -6,13 +6,16 @@ import user_icon from "../../images/user-icon.png"
 import { Container,Row } from 'reactstrap'
 import {BsSuitHeart,BsBag} from "react-icons/bs"
 import {RxHamburgerMenu} from "react-icons/rx"
-import {motion} from "framer-motion"
-import { auth } from '../../firebase'
-import { signOut } from 'firebase/auth'
-import { toast } from 'react-toastify'
+import {motion} from "framer-motion";
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import useAuth from '../Auth/useAuth';
+
 
 const Header = () => {
 
+    const {currentUser} =useAuth();
 
     //const totalQuantity=useSelector(state=>state.cart.totalQuantity);
 
@@ -82,15 +85,13 @@ useEffect(()=>{
                 </span>
                 <div className='profile'>
                 <motion.img whileTap={{scale:1.1}} src={user_icon} alt="" onClick={()=>{setShowProfile(!showProfile)}}/>
-                
+            
                 <div onClick={()=>{setShowProfile(!showProfile)}} className={`profile__actions ${showProfile && 'show__profileActions'}`}>
                     {
-                       // <div  className='text-start text-dark'><div onClick={logout} >Logout</div></div>:
+                        currentUser?<div  className='text-start text-dark'><div onClick={logout} >Logout</div></div>:
                         (
                             <div className='d-flex flex-column fw-500 text-start text-dark'>
-                            <Link to='/signup'>Signup</Link>
                             <Link to='/login'>Login</Link>
-                            {/* <Link to='/dashboard'>Dashboard</Link> */}
                             </div>)}
                 </div>
 

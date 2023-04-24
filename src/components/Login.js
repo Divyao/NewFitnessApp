@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useContext} from "react";
+import React, {useState,useEffect} from "react";
 import { TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Grid from '@mui/material/Grid';
@@ -28,16 +28,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
-  const [logBtn, setLogBtn] = useState(false);
 
 
   const loginHandler = async(e) => {
 
   e.preventDefault();
-  setLoading(true);
   setEmailError(false)
   setPasswordError(false)
 
@@ -52,7 +49,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   try{
     const userCredential=await signInWithEmailAndPassword(auth,email,password)
     const user=userCredential.user;
-    setLoading(false);
     toast.success("Successfully logged in")
     alert('Successfully logged in')
     if (user.reloadUserInfo?.email?.includes('admin')){
@@ -63,7 +59,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     }
   }
   catch(error){
-    setLoading(false);
     toast.error(error.message)
     alert('please check login details')
   }
@@ -113,7 +108,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
                     fullWidth
                     sx={{mb: 3}}
                  />
-                 <Button disabled={logBtn} variant="outlined" color="secondary" type="submit">Login</Button>             
+                 <Button variant="outlined" color="secondary" type="submit">Login</Button>             
         </form>
         <small>Need an account? <Link to="/">Register here</Link></small>
     </StyledPaper>

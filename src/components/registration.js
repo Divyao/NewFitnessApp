@@ -23,7 +23,6 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [regBtn,setRegBtn]=useState(false)
-    const [loading,setLoading]=useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [emailError, setEmailError] = useState(false)
 
