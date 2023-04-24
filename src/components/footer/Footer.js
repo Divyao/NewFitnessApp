@@ -69,7 +69,7 @@ const Footer = () => {
   const year = new Date().getFullYear()
   return (
     <>
-    <div style={{ backgroundColor: 'black', color: 'white'}} >
+    <div style={{ backgroundColor: 'lightblue', color: 'black'}} >
       <footer className='text-center text-capitalize'>
         copyright react Divya_FitApp &copy; {year}
       </footer>

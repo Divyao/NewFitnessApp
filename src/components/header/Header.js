@@ -40,41 +40,32 @@ useEffect(()=>{
     window.addEventListener("scroll",navTransition); 
 },[])
 
-    const NavLinks=[
-        {
-            path:"/",
-            name:"Home",
-        },
-        
-
-    ]
-
-    
+   
 
     const navigate=useNavigate();
   return (
-    <div style={{ backgroundColor: 'black', color: 'Blue'}}>
+    <div style={{ backgroundColor: 'lightblue', color: 'black'}}>
    <header className={`header ${nav && 'sticky__header'}`}>
- <Container  text="white">
+ <Container  text="black">
     <Row>
         <div className="nav__wrapper">
             <div className="logo">
                 <img onClick={()=>{navigate("/")}} src={logo} alt="logo" />
                 <div>
-                    <h3 className='text-white' onClick={()=>{navigate("/")}}>My Fitness App</h3>
+                    <h3 className='text-black' onClick={()=>{navigate("/")}}>My Fitness App</h3>
                     {/* <p>Since 1992</p> */}
                 </div>
             </div>
             <div className='text-white'onClick={()=>{setShowMobileMenu(!showMobileMenu)}}>
                 <ul className='menu'>
-                   {NavLinks.map((nav,index)=>
+                   {/* {NavLinks.map((nav,index)=>
                     (<li className="nav__item" key={index}>
                     <NavLink to={nav.path} className={(navclass)=>navclass.isActive?"nav__active" : "" } >
                         {nav.name}
                     </NavLink>
                     </li>)
                    )}
-                    
+                     */}
                 </ul>
             </div>
             <div className="nav__icons">
